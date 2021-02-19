@@ -187,7 +187,8 @@ try {
 		//a = b;
 		//b = tmp; 
 
-		const arraydest2= [b= 1, a= 2]; 
+		[a, b] = [b, a];
+
 		// Don't make changes below this line	
 		
 		expect(a).toEqual(2);
@@ -206,7 +207,7 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		const [name, age, add] =[obj.name, obj.age, obj.add];
+		let {name, age, add} = obj;
 		
 		//let name = obj.name;
 		//let age = obj.age;
@@ -292,11 +293,11 @@ try {
 
   
 	(function UseObjectSpreadProperties1() {
-		let obj = { val: 1 };
+		let obj = {};
 		
 		// Use Object Spread Properties to let the tests succeed.
 		//let copy = obj;
-		let copy = {val: 1, ...obj};
+		let copy = {...obj};
 
 		// Don't make changes below this line	
 		
@@ -322,7 +323,8 @@ try {
 		// - Do use object spread properties
 		// - Think about the order!
 		//let result = { obj1, obj2, obj3 };
-		let result = { ...obj1, ...obj2, ...obj3, b:0, d:100};
+
+		let result = { ...obj1, ...obj3, ...obj2};
 		// Don't make changes below this line	
 		
 		expect(result.a).toBe(100);
